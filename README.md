@@ -10,3 +10,7 @@ update/replace the carousel with a new set of films.
 
 To do:
 4. A good design (Not a high priority)
+
+Create React APP
+
+run 'npm install' to install dependencies. 
