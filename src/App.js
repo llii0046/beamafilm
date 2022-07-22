@@ -1,25 +1,45 @@
-import logo from './logo.svg';
-import './App.css';
+import { useEffect, useState } from 'react';
+import axios from 'axios';
+import React from 'react';
+import styled from 'styled-components';
 
-function App() {
+// const settings = {
+//   disableButtonsControls: true,
+//   infinite: true,
+//   autoHeight: true
+// };
+
+const Layout = styled.div`
+`
+
+const CardWrapper = styled.div``
+
+const Title = styled.h2``
+
+const FilmImage = styled.img`
+  width:200px;
+  height:200px;
+`
+
+export default function App() {
+  const [films, setFilms] = useState();
+  useEffect(() => {
+    axios.get(`/api/dev/mock-films`)
+      .then(res => {
+        setFilms(res.data.films);
+      })
+  }, []);
+
+  console.log(films);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Layout>
+      {films.map(({ title, image_url }) => (
+        <CardWrapper>
+          <Title>{title}</Title>
+          <FilmImage src={image_url} alt={title}></FilmImage>
+        </CardWrapper>
+      ))}
+    </Layout>
   );
 }
 
-export default App;
