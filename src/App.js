@@ -27,8 +27,17 @@ const FilmImage = styled.img`
   height:200px;
 `
 const Button = styled.button`
-  width: 100px;
-  height: 30px;
+    width: 100px;
+    height: 30px;
+    &：hover {
+      border: 1px #C6C6C6 solid;
+      box-shadow: 1px 1px 1px #EAEAEA;
+      color: #333333;
+      background: #F7F7F7;
+    }
+    &:active {
+      box-shadow: inset 1px 1px 1px #DFDFDF;   
+    }
 `
 export default function App() {
   const [films, setFilms] = useState([{}]);
