@@ -6,11 +6,6 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper";
 import "swiper/css";
 import "swiper/css/navigation";
-// const settings = {
-//   disableButtonsControls: true,
-//   infinite: true,
-//   autoHeight: true
-// };
 
 const Layout = styled.div`
 `
@@ -36,24 +31,29 @@ const Button = styled.button`
   height: 30px;
 `
 export default function App() {
-  const [films, setFilms] = useState();
-  useEffect(() => {
+  const [films, setFilms] = useState([{}]);
+  const request = () => {
     axios.get(`/api/dev/mock-films`)
       .then(res => {
         setFilms(res.data.films);
       })
+  }
+
+  useEffect(() => {
+    request();
   }, []);
 
-  const handleClick = () => {
 
+  const handleClick = () => {
+    request();
   }
 
   return (
     <Layout>
       <Swiper navigation={true} modules={[Navigation]} slidesPerView={7} >
-        {films.map(({ title, image_url }) => (
-          <SwiperSlide>
-            <CardWrapper>
+        {films.map(({ title, image_url,index }) => (
+          <SwiperSlide key={index}>
+            <CardWrapper key={index}>
               <Title>{title}</Title>
               <FilmImage src={image_url} alt={title}></FilmImage>
             </CardWrapper>
