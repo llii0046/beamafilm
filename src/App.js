@@ -8,6 +8,7 @@ import "swiper/css";
 import "swiper/css/navigation";
 
 const Layout = styled.div`
+  padding: 30px;
 `
 
 const CardWrapper = styled.div`
@@ -59,7 +60,7 @@ export default function App() {
 
   return (
     <Layout>
-      <Swiper navigation={true} modules={[Navigation]} slidesPerView={7} >
+      <Swiper navigation={true} modules={[Navigation]} slidesPerView='auto'>
         {films.map(({ title, image_url }) => (
           <SwiperSlide>
             <CardWrapper>
