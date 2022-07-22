@@ -51,9 +51,9 @@ export default function App() {
   return (
     <Layout>
       <Swiper navigation={true} modules={[Navigation]} slidesPerView={7} >
-        {films.map(({ title, image_url,index }) => (
-          <SwiperSlide key={index}>
-            <CardWrapper key={index}>
+        {films.map(({ title, image_url }) => (
+          <SwiperSlide>
+            <CardWrapper>
               <Title>{title}</Title>
               <FilmImage src={image_url} alt={title}></FilmImage>
             </CardWrapper>
