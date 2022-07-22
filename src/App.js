@@ -1,19 +1,20 @@
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/mousewheel";
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 import React from 'react';
 import styled from 'styled-components';
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper";
-import "swiper/css";
-import "swiper/css/navigation";
 
 const Layout = styled.div`
   padding: 30px;
 `
 
 const CardWrapper = styled.div`
-  width:300px;
-  height:300px;  
+ padding:0 10px;
+ margin: 0 10px;
 `
 
 const Title = styled.h2`
@@ -27,6 +28,7 @@ const FilmImage = styled.img`
   width:200px;
   height:200px;
 `
+
 const Button = styled.button`
     width: 100px;
     height: 30px;
@@ -60,7 +62,7 @@ export default function App() {
 
   return (
     <Layout>
-      <Swiper navigation={true} modules={[Navigation]} slidesPerView='auto'>
+      <Swiper navigation={true} modules={[Navigation]} mousewheel={true} slidesPerView={7}>
         {films.map(({ title, image_url }) => (
           <SwiperSlide>
             <CardWrapper>
