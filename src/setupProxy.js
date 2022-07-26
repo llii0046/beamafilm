@@ -4,7 +4,7 @@ module.exports = function(app) {
   app.use(
     '/api',
     createProxyMiddleware({
-      target: 'http://staging-beamafilm.com/',
+      target: 'https://beamafilm.com/',
       changeOrigin: true,
     })
   );
