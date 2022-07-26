@@ -13,6 +13,7 @@ const Button = styled.button`
     text-shadow: 0px 0px 10px rgba(0,0,0,0.2);
     border-radius: 10px;
     margin:0px auto 0px auto;
+    cursor: pointer;
     &:hover {
         background-position: right center; 
     }
